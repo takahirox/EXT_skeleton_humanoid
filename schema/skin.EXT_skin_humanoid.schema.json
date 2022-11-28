@@ -1,0 +1,170 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema",
+    "title": "EXT_skin_humanoid glTF extension",
+    "type": "object",
+    "description": "glTF extension for specifying standard humanoid bones set.",
+    "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
+    "properties": {
+        "humanoidBones": {
+            "type": "object",
+            "properties": {
+                "hips": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "spine": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "upperChest": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "neck": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "head": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftShoulder": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftUpperArm": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftLowerArm": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftHand": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftThumbMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftThumbProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftThumbDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftIndexMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftIndexProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftIndexDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftMiddleMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftMiddleProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftMiddleDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftRingMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftRingProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftRingDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftLittleMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftLittleProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftLittleDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftUpperLeg": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftLowerLeg": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftFoot": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "leftToes": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightShoulder": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightUpperArm": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightLowerArm": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightHand": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightThumbMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightThumbProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightThumbDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightIndexMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightIndexProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightIndexDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightMiddleMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightMiddleProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightMiddleDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightRingMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightRingProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightRingDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightLittleMetacarpal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightLittleProximal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightLittleDistal": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightUpperLeg": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightLowerLeg": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightFoot": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                },
+                "rightToes": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ],
+                }
+            }
+        }
+        "extensions": { },
+        "extras": { }
+    },
+    "required": [ "humanoidBones" ]
+}
