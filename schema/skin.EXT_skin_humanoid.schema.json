@@ -44,37 +44,37 @@
                 "leftThumbDistal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "leftIndexMetacarpal": {
+                "leftIndexProximal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "leftIndexProximal": {
+                "leftIndexIntermediate": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
                 "leftIndexDistal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "leftMiddleMetacarpal": {
+                "leftMiddleProximal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "leftMiddleProximal": {
+                "leftMiddleIntermediate": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
                 "leftMiddleDistal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "leftRingMetacarpal": {
+                "leftRingProximal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "leftRingProximal": {
+                "leftRingIntermediate": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
                 "leftRingDistal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "leftLittleMetacarpal": {
+                "leftLittleProximal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "leftLittleProximal": {
+                "leftLittleIntermediate": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
                 "leftLittleDistal": {
@@ -113,37 +113,37 @@
                 "rightThumbDistal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "rightIndexMetacarpal": {
+                "rightIndexProximal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "rightIndexProximal": {
+                "rightIndexIntermediate": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
                 "rightIndexDistal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "rightMiddleMetacarpal": {
+                "rightMiddleProximal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "rightMiddleProximal": {
+                "rightMiddleIntermediate": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
                 "rightMiddleDistal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "rightRingMetacarpal": {
+                "rightRingProximal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "rightRingProximal": {
+                "rightRingIntermediate": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
                 "rightRingDistal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "rightLittleMetacarpal": {
+                "rightLittleProximal": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
-                "rightLittleProximal": {
+                "rightLittleIntermediate": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
                 "rightLittleDistal": {
