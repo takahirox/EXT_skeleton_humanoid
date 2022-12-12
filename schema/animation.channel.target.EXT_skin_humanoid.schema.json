@@ -6,8 +6,8 @@
     "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
         "humanoidBoneName": {
-            "type": "string",
-        }
+            "type": "string"
+        },
         "extensions": { },
         "extras": { }
     },

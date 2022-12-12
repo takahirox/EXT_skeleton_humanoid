@@ -64,9 +64,12 @@ Based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specification/blob
    │           └─ [left|right]UpperArm
    │              └─ [left|right]LowerArm
    │                 └─ [left|right]Hand
-   │                    └─ [left|right][Thumb|Index|Middle|Ring|Little]Metacarpal
-   │                       └─ [left|right][Thumb|Index|Middle|Ring|Little]Proximal
-   │                          └─ [left|right][Thumb|Index|Middle|Ring|Little]Distal
+   │                    ├─ [left|right]ThumbMetacarpal
+   │                    |  └─ [left|right]ThumbProximal
+   │                    |     └─ [left|right]ThumbDistal
+   │                    └─ [left|right][Index|Middle|Ring|Little]Proximal
+   │                       └─ [left|right][Index|Middle|Ring|Little]Intermediate
+   │                          └─ [left|right][Index|Middle|Ring|Little]Distal
    └─ [left|right]UpperLeg
       └─ [left|right]LowerLeg
          └─ [left|right]Foot
