@@ -25,6 +25,20 @@ This extension also allows `animation.channel.target` to specify a target node w
 a predefined bone name. It enables for example to make humanoid animation library (eg. Walk, Run,
 Jump) that can be applied to any glTF assets having `skin` that defines this extension.
 
+## Example
+
+This example video shows that the same waving hand keyframe animation data is applied to two
+models.
+
+![example](./images/example.gif)
+
+The models are originally from 
+
+* https://hub.vroid.com/en/characters/287819523106027526/models/7392039141849953586
+* https://hub.vroid.com/en/characters/2843975675147313744/models/5644550979324015604
+
+The `skin` of them are edited a bit to support the extension.
+
 ## Skin
 
 T.B.D.
