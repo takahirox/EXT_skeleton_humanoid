@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-04/schema",
-    "title": "EXT_skin_humanoid glTF extension",
+    "title": "EXT_skeleton_humanoid glTF extension",
     "type": "object",
     "description": "glTF extension for specifying standard humanoid bone as animation target.",
     "allOf": [ { "$ref": "glTFProperty.schema.json" } ],

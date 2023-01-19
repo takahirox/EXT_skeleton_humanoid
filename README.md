@@ -1,4 +1,4 @@
-# EXT_skin_humanoid
+# EXT_skeleton_humanoid
 
 ## Contributors
 
@@ -35,7 +35,7 @@ running animation look very weird. But the core glTF specification doesn't allow
 animation retargeting so different animation data needs to make for every humanoid
 model. It is costly.
 
-This `EXT_skin_humanoid` extension allows easy humanoid animation retargetting. The
+This `EXT_skeleton_humanoid` extension allows easy humanoid animation retargetting. The
 basic　idea consists of
 
 * Predefine a standard humanoid skeleton (bone set, bone hierarchy, default pose). A
@@ -71,17 +71,17 @@ The `skin` of them are edited a bit to support the extension.
 
 ## Skin
 
-The `EXT_skin_humanoid` extension in `skin` allows to map from humanoid bone names
+The `EXT_skeleton_humanoid` extension in `skin` allows to map from humanoid bone names
 defined in the "Humanoid bones" section to `skin.joints`.
 
-`EXT_skin_humanoid.humanoidBones.boneName` defines an index of `skins.joints` mapped.
+`EXT_skeleton_humanoid.humanoidBones.boneName` defines an index of `skins.joints` mapped.
 
 ```json
 "skins": [
     {
         "joints": [ 10, 11, 12, ... ],
         "extensions": {
-            "EXT_skin_humanoid": {
+            "EXT_skeleton_humanoid": {
                 "humanoidBones": {
                     "neck": 0,
                     "leftHand": 1,
@@ -94,7 +94,7 @@ defined in the "Humanoid bones" section to `skin.joints`.
 ],
 ```
 
-In the example above, `EXT_skin_humanoid.humanoidBones.neck` has 0 so the corresponding
+In the example above, `EXT_skeleton_humanoid.humanoidBones.neck` has 0 so the corresponding
 node index is 10 (= *skin.joints[0]*). Similarly the node index for leftHand is 11 and
 the node index for rightHand is 12.
 
@@ -136,7 +136,7 @@ Based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specification/blob
 
 TODO: Add bone names into the images.
 
-Schema: [skin.EXT_skin_humanoid.schema.json](./schema/skin.EXT_skin_humanoid.schema.json)
+Schema: [skin.EXT_skeleton_humanoid.schema.json](./schema/skin.EXT_skeleton_humanoid.schema.json)
 
 *A non-normative extension proposal author comment:*
 
@@ -169,7 +169,7 @@ default pose defined in Godot engine for now because it looks good.
 
 ## Animation
 
-`EXT_skin_humanoid` extension in `animation.channel.target` allows to specify the target node with a humanoid bone name defined in the "Humanoid bones" section.
+`EXT_skeleton_humanoid` extension in `animation.channel.target` allows to specify the target node with a humanoid bone name defined in the "Humanoid bones" section.
 
 ```json
 "animations": [
@@ -180,7 +180,7 @@ default pose defined in Godot engine for now because it looks good.
                 "target": {
                     "path": "rotation",
                     "extensions": {
-                        "EXT_skin_humanoid": {
+                        "EXT_skeleton_humanoid": {
                             "humanoidBoneName": "neck",
                         },
                     },
@@ -191,7 +191,7 @@ default pose defined in Godot engine for now because it looks good.
                 "target": {
                     "path": "rotation"
                     "extensions": {
-                        "EXT_skin_humanoid": {
+                        "EXT_skeleton_humanoid": {
                             "humanoidBoneName": "leftHand",
                         },
                     },
@@ -202,7 +202,7 @@ default pose defined in Godot engine for now because it looks good.
                 "target": {
                     "path": "rotation"
                     "extensions": {
-                        "EXT_skin_humanoid": {
+                        "EXT_skeleton_humanoid": {
                             "humanoidBoneName": "rightHand",
                         },
                     },
@@ -217,21 +217,21 @@ default pose defined in Godot engine for now because it looks good.
 `animation.sampler` reffered by a `animation.channel` that define this extension **MUST NOT** be reffered by
 another `animation.channel` that doesn't define this extension.
 
-Schema: [animation.channel.target.EXT_skin_humanoid.schema.json](./schema/animation.channel.target.EXT_skin_humanoid.schema.json)
+Schema: [animation.channel.target.EXT_skeleton_humanoid.schema.json](./schema/animation.channel.target.EXT_skeleton_humanoid.schema.json)
 
 ### Animation retargeting
 
-Animation channel having `EXT_skin_humanoid` extension definition is expected to be retargeted to a humanoid model having `EXT_skin_humanoid` extension definition.
+Animation channel having `EXT_skeleton_humanoid` extension definition is expected to be retargeted to a humanoid model having `EXT_skeleton_humanoid` extension definition.
 
-The implementation can find a target node of the humanoid model by using `EXT_skin_humanoid.humanoidBoneName` as like the following pseudo code.
+The implementation can find a target node of the humanoid model by using `EXT_skeleton_humanoid.humanoidBoneName` as like the following pseudo code.
 
 ```
-boneName = animation.channel.target.extensions.EXT_skin_humanoid.humanoidBoneName;
-jointIndex = skin.extensions.EXT_skin_humanoid[boneName];
+boneName = animation.channel.target.extensions.EXT_skeleton_humanoid.humanoidBoneName;
+jointIndex = skin.extensions.EXT_skeleton_humanoid[boneName];
 targetNodeIndex = skin.joints[jointIndex];
 ```
 
-`animation.sampler` specified by `animation.channel` whose `target` has `EXT_skin_humanoid` extension definition is expected to hold keyframe animation data that represents relative translation/rotation/scale from target node translation/rotation/scale in the skeleton's default pose.
+`animation.sampler` specified by `animation.channel` whose `target` has `EXT_skeleton_humanoid` extension definition is expected to hold keyframe animation data that represents relative translation/rotation/scale from target node translation/rotation/scale in the skeleton's default pose.
 
 The default pose can be calculated with [skin.inverseBindMatrices](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#reference-skin) so animated translation/rotation/scale can be calculated as like the following pseudo code.
 
