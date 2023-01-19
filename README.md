@@ -67,39 +67,32 @@ The models are originally from
 * https://hub.vroid.com/en/characters/287819523106027526/models/7392039141849953586
 * https://hub.vroid.com/en/characters/2843975675147313744/models/5644550979324015604
 
-The `skin` of them are edited a bit to support the extension.
+The asset files are a bit edited from original to support the extension.
 
-## Skin
+## Skeleton definition
 
-The `EXT_skeleton_humanoid` extension in `skin` allows to map from humanoid bone names
-defined in the "Humanoid bones" section to `skin.joints`.
-
-`EXT_skeleton_humanoid.humanoidBones.boneName` defines an index of `skins.joints` mapped.
+The `EXT_skeleton_humanoid` extension in root `glTF` allows to define humanoid skeletons.
+`glTF.EXT_skeleton_humanoid.humanoidSkeletons` takes an array of humanoid skeleton
+definitions that has a skeleton root `node` index as `rootNode` and a mapping from
+predefined humanoid bone names to `node` indices as `humanoidBones`.
 
 ```json
-"skins": [
-    {
-        "joints": [ 10, 11, 12, ... ],
-        "extensions": {
-            "EXT_skeleton_humanoid": {
+"extensions": {
+    "EXT_skeleton_humanoid": {
+        "humanoidSkeletons": [
+            {
+                "rootNode": 0,
                 "humanoidBones": {
-                    "neck": 0,
-                    "leftHand": 1,
-                    "rightHand": 2,
+                    "neck": 1,
+                    "leftHand": 2,
+                    "rightHand": 3,
                     ...
                 },
             },
-        },
+        ],
     },
-],
+},
 ```
-
-In the example above, `EXT_skeleton_humanoid.humanoidBones.neck` has 0 so the corresponding
-node index is 10 (= *skin.joints[0]*). Similarly the node index for leftHand is 11 and
-the node index for rightHand is 12.
-
-A humanoid skeleton **MUST** be tied to a single `skin`. It **MUST NOT** consist of
-separated multiple `skins`.
 
 ### Humanoid bones
 
@@ -136,7 +129,7 @@ Based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specification/blob
 
 TODO: Add bone names into the images.
 
-Schema: [skin.EXT_skeleton_humanoid.schema.json](./schema/skin.EXT_skeleton_humanoid.schema.json)
+Schema: [glTF.EXT_skeleton_humanoid.schema.json](./schema/glTF.EXT_skeleton_humanoid.schema.json)
 
 *A non-normative extension proposal author comment:*
 
@@ -223,12 +216,11 @@ Schema: [animation.channel.target.EXT_skeleton_humanoid.schema.json](./schema/an
 
 Animation channel having `EXT_skeleton_humanoid` extension definition is expected to be retargeted to a humanoid model having `EXT_skeleton_humanoid` extension definition.
 
-The implementation can find a target node of the humanoid model by using `EXT_skeleton_humanoid.humanoidBoneName` as like the following pseudo code.
+The implementation can find a target node of the humanoid model by accessing `EXT_skeleton_humanoid.humanoidBoneName` as like the following pseudo code.
 
 ```
 boneName = animation.channel.target.extensions.EXT_skeleton_humanoid.humanoidBoneName;
-jointIndex = skin.extensions.EXT_skeleton_humanoid[boneName];
-targetNodeIndex = skin.joints[jointIndex];
+targetNodeIndex = glTF.extensions.EXT_skeleton_humanoid.humanoidSkeleton[skeletonIndex].humanoidBones[boneName];
 ```
 
 `animation.sampler` specified by `animation.channel` whose `target` has `EXT_skeleton_humanoid` extension definition is expected to hold keyframe animation data that represents relative translation/rotation/scale from target node translation/rotation/scale in the skeleton's default pose.

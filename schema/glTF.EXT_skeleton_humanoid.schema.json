@@ -5,6 +5,14 @@
     "description": "glTF extension for specifying standard humanoid bones set.",
     "allOf": [ { "$ref": "glTFProperty.schema.json" } ],
     "properties": {
+        "rootNode": {
+            "allOf": [
+                {
+                    "$ref": "glTFid.schema.json"
+                }
+            ],
+            "description": "The index of the node as the humanoid skeleton root node"
+        },
         "humanoidBones": {
             "type": "object",
             "properties": {
@@ -166,5 +174,5 @@
         "extensions": { },
         "extras": { }
     },
-    "required": [ "humanoidBones" ]
+    "required": [ "rootNode", "humanoidBones" ]
 }
