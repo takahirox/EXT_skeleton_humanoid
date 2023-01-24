@@ -61,8 +61,8 @@ animation target is no longer tied to a certain node in the same glTF file.
 
 ## Example
 
-This example video shows that the same waving hand keyframe animation data is applied to two
-models.
+This example video shows that the same waving hand keyframe animation data is
+applied to two different humanoid models.
 
 ![example](./images/example.gif)
 
@@ -71,32 +71,9 @@ The models are originally from
 * https://hub.vroid.com/en/characters/287819523106027526/models/7392039141849953586
 * https://hub.vroid.com/en/characters/2843975675147313744/models/5644550979324015604
 
-The asset files are a bit edited from original to support the extension.
+and a bit edited to support the extension.
 
-## Skeleton definition
-
-The `EXT_skeleton_humanoid` extension in root `glTF` allows to define humanoid skeletons.
-`glTF.EXT_skeleton_humanoid.humanoidSkeletons` takes an array of humanoid skeleton
-definitions. The elements of the array have a skeleton root `node` index as `rootNode`
-and a mapping from predefined humanoid bone names to `node` indices as `humanoidBones`.
-
-```json
-"extensions": {
-    "EXT_skeleton_humanoid": {
-        "humanoidSkeletons": [
-            {
-                "rootNode": 0,
-                "humanoidBones": {
-                    "neck": 1,
-                    "leftHand": 2,
-                    "rightHand": 3,
-                    ...
-                },
-            },
-        ],
-    },
-},
-```
+## Predefined skeleton
 
 ### Humanoid bones
 
@@ -133,23 +110,23 @@ Based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specification/blob
 
 TODO: Add bone names into the images.
 
-Schema: [glTF.EXT_skeleton_humanoid.schema.json](./schema/glTF.EXT_skeleton_humanoid.schema.json)
-
 *A non-normative extension proposal author comment:*
 
-The current status of this extension proposal is as experiment to know whether the key
-concept mentioned in the overview is good enough for humanoid animation retargeting. I
-don't have any strong opinion and even don't have good knowledge to determine how the
-actual bone set and hierarchy should be yet (for example how many spine bones should
+The current status of this extension proposal is as experiment to know whether
+the key concept mentioned in the overview is good enough for humanoid animation
+retargeting. I, the extension author, don't have any strong opinion about how
+the bone set and hierarchy should be (for example how many spine bones should
 be).
 
-[VRM](https://vrm.dev/) may be one of the well known avatar formats based on glTF. And
-there seems to be many VRM models. So perhaps it is good that the extension deifnes
-bone set and hierarchy that are compatible with VRM humanoid skeleton for now.
+[VRM](https://vrm.dev/) may be one of the well known avatar formats based on
+glTF. VRM has a humanoid skeleton definition. This extension follows the VRM
+humanoid skeleton definition for now for compatibility with VRM because
+there seems to be many existing humanoid VRM models.
 
 ### Default pose
 
-The extension adds some rules for the default pose to ease the animation retargeting.
+The extension adds some restrictions to the default pose to ease the animation
+retargeting.
 
 * T-Pose
 * Facing +Z
@@ -161,13 +138,59 @@ Based on [Godot Engine](https://docs.godotengine.org/en/latest/tutorials/assets_
 *A non-normative extension proposal author comment:*
 
 Similar to the author comment in the Humanoid bones section, I don't have any 
-strong opinion and knowledge to determine the actual default pose yet. I reuse the
-default pose defined in Godot engine for now because it looks good.
+strong opinion about how the actual default pose should be. The extension
+follows the restrictions defined in Godot engine for now because they look good
+for animation retargeting.
 
-## Animation
+### Skeleton definition
 
-`EXT_skeleton_humanoid` extension in `animation.channel.target` allows to specify the
-target node with a humanoid bone name defined in the "Humanoid bones" section.
+The `EXT_skeleton_humanoid` extension in root `glTF` allows to define humanoid
+skeletons. `glTF.EXT_skeleton_humanoid.humanoidSkeletons` takes an array of
+humanoid skeleton definitions.
+
+`glTF.EXT_skeleton_humanoid.humanoidSkeleton.humanoidBones` defines a map from
+the predefined humanoid bone names to `nodes`.
+`glTF.EXT_skeleton_humanoid.humanoidSkeleton.rootNode` specifies a skeleton
+root `node`.
+
+```json
+"extensions": {
+    "EXT_skeleton_humanoid": {
+        "humanoidSkeletons": [
+            {
+                "rootNode": 0,
+                "humanoidBones": {
+                    "neck": 1,
+                    "leftHand": 2,
+                    "rightHand": 3,
+                    ...
+                },
+            },
+        ],
+    },
+},
+```
+
+Schema: [glTF.EXT_skeleton_humanoid.schema.json](./schema/glTF.EXT_skeleton_humanoid.schema.json)
+
+### EXT_skeleton_humanoid property
+
+| Property | Type | Description | Requires |
+|:------|:------|:------|:------|
+| `humanoidSkeletons` | `humanoidSkeleton [1-*]` | An array of skeleton definitions | :white_check_mark: Yes |
+
+### humanoidSkeleton property
+
+| Property | Type | Description | Requires |
+|:------|:------|:------|:------|
+| `rootNode` | `integer` | `node` index as root node of this skeleton | :white_check_mark: Yes |
+| `humanoidBones` | `Object` | A map from the predefined bone names to `node` indices | :white_check_mark: Yes |
+
+## Animation definition
+
+The `EXT_skeleton_humanoid` extension in `animation.channel.target` allows to
+specify the target node with a humanoid bone name predefined in the
+"Humanoid bones" section.
 
 ```json
 "animations": [
@@ -212,33 +235,40 @@ target node with a humanoid bone name defined in the "Humanoid bones" section.
 ],
 ```
 
-`animation.sampler` reffered by a `animation.channel` that define this extension
-**MUST NOT** be reffered by another `animation.channel` that doesn't define this
-extension.
+`animation.sampler` reffered by a `animation.channel` that defines this
+extension **MUST NOT** be reffered by another `animation.channel` that
+does not define this extension.
 
 Schema: [animation.channel.target.EXT_skeleton_humanoid.schema.json](./schema/animation.channel.target.EXT_skeleton_humanoid.schema.json)
 
-### Animation retargeting
+### Animation property
 
-Animation channel having `EXT_skeleton_humanoid` extension definition is expected
-to be retargeted to a humanoid model having `EXT_skeleton_humanoid` extension
-definition.
+| Property | Type | Description | Requires |
+|:------|:------|:------|:------|
+| `humanoidBoneName` | `string` | A predefined bone name to specify a target node | :white_check_mark: Yes |
 
-The implementation can find a target node of the humanoid model by accessing
-`EXT_skeleton_humanoid.humanoidSkeletons[skeletonIndex].humanoidBoneName` as like the
-following pseudo code.
+## Animation retargeting
+
+An animation channel that defines the `EXT_skeleton_humanoid` extension is
+expected to be retargeted to a humanoid model that defines the
+`EXT_skeleton_humanoid` extension.
+
+The implementation can find a target node of a humanoid model by accessing
+`EXT_skeleton_humanoid.humanoidSkeleton.humanoidBoneName` as like the following
+pseudo code.
 
 ```
 boneName = animation.channel.target.extensions.EXT_skeleton_humanoid.humanoidBoneName;
 targetNodeIndex = glTF.extensions.EXT_skeleton_humanoid.humanoidSkeletons[skeletonIndex].humanoidBones[boneName];
 ```
 
-`animation.sampler` specified by `animation.channel` whose `target` has
-`EXT_skeleton_humanoid` extension definition is expected to hold keyframe animation
-data that represents relative translation/rotation/scale from target node
-translation/rotation/scale in the skeleton's default pose.
+`animation.sampler` referred by `animation.channel` whose `target` defines
+the `EXT_skeleton_humanoid` extension is expected to hold keyframe animation data
+that represents relative transform from target node's default pose.
 
-The default pose can be calculated with [skin.inverseBindMatrices](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#reference-skin) so animated translation/rotation/scale can be calculated as like the following pseudo code.
+The default poses are specified with
+[skin.inverseBindMatrices](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#reference-skin)
+so retargeted animation can be calculated as like the following pseudo code.
 
 ```
 bindWorldMatrix = invertMatrix(inverseBindMatrix);
@@ -251,25 +281,28 @@ animatedLocalMatrix = bindLocalMatrix * composeMatrix(translation, rotation, sca
 
 *Non-normative extension proposal author comment*
 
-[VRM](https://vrm.dev/) may be a well known humanoid model format based on glTF. It consists of
-some glTF extensions and some restrictions against glTF, for example VRM allows only one 
-humanoid model in a single VRM file. VRM has a glTF humanoid skeleton extension but it is based
-on the restriction that VRM allows only one humanoid model in VRM file so there is no way to
-define multiple humanoid skeletons in a single VRM file.
+[VRM](https://vrm.dev/) may be a well known humanoid avatar format based on
+glTF. It consists of some glTF extensions and some restrictions against glTF,
+for example VRM allows only one humanoid model in a single VRM file. VRM has
+a glTF humanoid skeleton extension but it is based on the restriction that one
+humanoid model in a single file. There is no way to define multiple humanoid
+skeletons in a single VRM file.
 
-VRM is primarily designed as a VR avatar format so their extension might be richer than
-general humanoid model use requirement.
+VRM is primarily designed as a VR avatar format so their extension might be
+richer than general humanoid model use requirement.
 
-VRM doesn't specify any keyframe animation although keyframe animation
-is one of the important stuffs in humanoid models.
+VRM doesn't specify any keyframe animation although keyframe animation is one
+of the important features in humanoid models.
 
-Humanoid skeleton is a popular use so a humanoid skeleton extension may not really need to
-be a vender specific extension. Ideally it is at least a multi-vendor extension.
+Humanoid skeleton is a popular use so a humanoid skeleton extension may not
+really need to be a vender specific extension. Ideally it is at least a
+multi-vendor extension.
 
-I started to write this draft to know if it is good to revisit and rewrite a standard
-glTF humanoid skeleton extension that may be simpler, may be no or less restriction as
-glTF (ex: Allow define multiple humanoid skeletons in a single glTF file), may cover
-animation retargeting, and may be as a multi-vendor extension.
+I started to write this draft to know if it is good to revisit and rewrite
+a standard glTF humanoid skeleton extension that may be simpler, may be no
+or less restriction as glTF (ex: Allow multiple humanoid skeletons in a
+single glTF file), may cover animation retargeting, and may be as a
+multi-vendor extension.
 
-In this scenario VRM (and other richer vendor specific humanoid skeleton extensions)
-can be written against this extension.
+In this scenario VRM (and other richer vendor specific humanoid skeleton
+extensions) can be written against this extension.
