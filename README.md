@@ -14,46 +14,50 @@ Written against the glTF 2.0 spec
 
 ## Overview
 
-Humanoid model is one of the popular 3D assets. You will find a lot of humanoid models
-in glTF assets download sites.
+This extension defines a default humanoid skeleton in glTF, allows to retarget
+glTF animations to any humanoid model that follows the standard skeleton, and
+improves the reusability of humanoid animations.
 
-glTF is a standard 3D model format and many engines support glTF so it is very easy to
-import glTF humanoid model assets in applications without any problems.
+Humanoid model is one of the popular 3D assets. You will find a lot of humanoid
+models in glTF assets download websites.
 
-But there is a challenging in generic humanoid model use in glTF, animation retargeting.
-In the core glTF specification, animation is tied to a certain node in the same file.
-There is no simple, clear, and common path to retarget animation to a certain humanoid model.
+[The glTF 2.0 core specification supports Linear Blend Skinning.](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#skins)
+Humanoid animations, eg: Walk, Run, and Jump, are generally achieved with
+skinning. Reusing humanoid animation that is made for a certain humanoid model
+to other humanoid models is not easy in glTF because of lack of animation
+retargeting mechanism.
 
-The fact that animation is tied to a certain node also blocks to create animation library
-that contains only common animation data without model data.
+What makes the retargeting difficult is that the glTF 2.0 core does not
+specify default humanoid skeleton (a series of bones and their hierarchy)
+therefore different humanoid models may have different formed skeletons.
 
-And glTF core specification doesn't define a standard humanoid skeleton (bone set, bone
-hierarchy, default pose). It makes animation retargeting more difficult.
+Another reason is that animation target in the glTF 2.0 core is tied to a
+certain node in the same glTF file and there is no way to target a node
+in other glTF files.
 
-Animation is important for humanoid models. Moving humanoid models without walking or
-running animation look very weird. But the core glTF specification doesn't allow easy
-animation retargeting so different animation data needs to be made for every humanoid
-model. It is costly.
+Because of these two reasons there is no simple, clear, and common workflow for
+humanoid animation retargeting in glTF. Currently even common humanoid
+animations like Walk need to be made for each humanoid model. It is very costly.
+Humanoid animation retargeting is important for saving cost.
 
-This `EXT_skeleton_humanoid` extension allows easy humanoid animation retargetting. The
-basic　idea consists of
+This extension allows easy humanoid animation retargeting across humanoid
+models that use the extension. The basic　idea consists of
 
-* Predefine a standard humanoid skeleton (bone set, bone hierarchy, default pose). A
-humanoid skeleton with this extension **MUST** follow it.
-* Allow animation to specify a target node with predefined a bone name that must be
-in the default bone set.
-* Animation data represents data relative from the default pose.
+* Predefine a default humanoid skeleton (a series of bones, their hierarchy,
+and default pose)
+* Allow animation channel to specify a target node with a predefined bone name
+* Represent animation data as relative transform from the default pose
 
-So the implementation can easily achieve animation retargeting by
+The implementations will be able to easily achieve humanoid animation
+retargeting by
 
 * Loading an animation data
 * Loading a humanoid model
-* Finding an animation target node by a bone name
-* Applying animation data to the default pose as animated transform
+* Finding an animation target node by a predefined bone name
+* Applying retargeted animation calculated from the default pose
 
-And animation is no longer tied to a certain node. The target node can be lazily found.
-So this extension also allows to create common humanoid animation library
-(eg. Walk, Run, Jump) file that doesn't include any model.
+Also, this extension allows to create common humanoid animation library because
+animation target is no longer tied to a certain node in the same glTF file.
 
 ## Example
 
