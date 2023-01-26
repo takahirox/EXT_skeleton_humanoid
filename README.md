@@ -75,11 +75,13 @@ and a bit edited to support the extension.
 
 ## Predefined skeleton
 
-### Humanoid bones
+### Humanoid bone set and hierarchy
 
 T.B.D.
 
-Based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.md).
+TODO: Finalize the humanoid bone set and hierarchy [#10](https://github.com/takahirox/EXT_skeleton_humanoid/issues/10)
+
+Currently based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.md).
 
 ```
 └─ hips
@@ -110,20 +112,13 @@ Based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specification/blob
 
 TODO: Add bone names into the images.
 
-*A non-normative extension proposal author comment:*
-
-The current status of this extension proposal is as experiment to know whether
-the key concept mentioned in the overview is good enough for humanoid animation
-retargeting. I, the extension author, don't have any strong opinion about how
-the bone set and hierarchy should be (for example how many spine bones should
-be).
-
-[VRM](https://vrm.dev/) may be one of the well known avatar formats based on
-glTF. VRM has a humanoid skeleton definition. This extension follows the VRM
-humanoid skeleton definition for now for compatibility with VRM because
-there seems to be many existing humanoid VRM models.
-
 ### Default pose
+
+T.B.D.
+
+TODO: Finalize the default pose restriction [#11](https://github.com/takahirox/EXT_skeleton_humanoid/issues/11)
+
+Currently based on [Godot Engine](https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/retargeting_3d_skeletons.html#rest-fixer)
 
 The extension adds some restrictions to the default pose to ease the animation
 retargeting.
@@ -132,15 +127,6 @@ retargeting.
 * Facing +Z
 * Directs the +Y axis from the parent joint to the child joint
 * +X rotation bends the joint like a muscle contracting
-
-Based on [Godot Engine](https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/retargeting_3d_skeletons.html#rest-fixer)
-
-*A non-normative extension proposal author comment:*
-
-Similar to the author comment in the Humanoid bones section, I don't have any 
-strong opinion about how the actual default pose should be. The extension
-follows the restrictions defined in Godot engine for now because they look good
-for animation retargeting.
 
 ### Skeleton definition
 
@@ -190,7 +176,7 @@ Schema: [glTF.EXT_skeleton_humanoid.schema.json](./schema/glTF.EXT_skeleton_huma
 
 The `EXT_skeleton_humanoid` extension in `animation.channel.target` allows to
 specify the target node with a humanoid bone name predefined in the
-"Humanoid bones" section.
+"Humanoid bone and hierarchy" section.
 
 ```json
 "animations": [
