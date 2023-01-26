@@ -41,7 +41,7 @@ animations like Walk need to be made for each humanoid model. It is very costly.
 Humanoid animation retargeting is important for saving cost.
 
 This extension allows easy humanoid animation retargeting across humanoid
-models that use the extension. The basic　idea consists of
+models that use the extension. The basic idea consists of
 
 * Predefine a default humanoid skeleton (a series of bones, their hierarchy,
 and default pose)
