@@ -293,7 +293,7 @@ Its humanoid skeleton extension follows this restriction so that only one
 skeleton can be defined in a single file.
 
 It may be a bit too strong limitation and some workflows may not be
-compatible with with VRM due to the limitation.
+compatible with VRM due to the limitation.
 
 The `EXT_skeleton_humanoid` extension does not add such a limitation.
 Multiple humanoid models and multiple skeletons can be included in a
