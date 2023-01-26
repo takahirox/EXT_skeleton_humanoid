@@ -282,27 +282,32 @@ animatedLocalMatrix = bindLocalMatrix * composeMatrix(translation, rotation, sca
 *Non-normative extension proposal author comment*
 
 [VRM](https://vrm.dev/) may be a well known humanoid avatar format based on
-glTF. It consists of some glTF extensions and some restrictions against glTF,
-for example VRM allows only one humanoid model in a single VRM file. VRM has
-a glTF humanoid skeleton extension but it is based on the restriction that one
-humanoid model in a single file. There is no way to define multiple humanoid
-skeletons in a single VRM file.
+glTF and it has a glTF humanoid skeleton extension. The readers who know
+VRM may wonder why we need another humanoid skeleton extension.
 
-VRM is primarily designed as a VR avatar format so their extension might be
-richer than general humanoid model use requirement.
+One of the major motivation of proposing the `EXT_skeleton_humanoid`
+extension is to free from the limitations of VRM.
 
-VRM doesn't specify any keyframe animation although keyframe animation is one
-of the important features in humanoid models.
+VRM has a strong restriction that it allows only one model in a single file.
+Its humanoid skeleton extension follows this restriction so that only one
+skeleton can be defined in a single file.
 
-Humanoid skeleton is a popular use so a humanoid skeleton extension may not
-really need to be a vender specific extension. Ideally it is at least a
-multi-vendor extension.
+It may be a bit too strong limitation and some workflows may not be
+compatible with with VRM due to the limitation.
 
-I started to write this draft to know if it is good to revisit and rewrite
-a standard glTF humanoid skeleton extension that may be simpler, may be no
-or less restriction as glTF (ex: Allow multiple humanoid skeletons in a
-single glTF file), may cover animation retargeting, and may be as a
-multi-vendor extension.
+The `EXT_skeleton_humanoid` extension does not add such a limitation.
+Multiple humanoid models and multiple skeletons can be included in a
+single glTF file.
 
-In this scenario VRM (and other richer vendor specific humanoid skeleton
-extensions) can be written against this extension.
+Another disadvantage of VRM is it does not specify keyframe animation
+or animation retargeting although they are important features for
+humanoid models. The `EXT_skeleton_humanoid` extension supports them.
+
+VRM is primarily designed as VR avatar model format and has unique
+features and restrictions. I think it is not good to be tied to their
+restrictions and their specific ecosystems just for creating a
+humanoid model in glTF. I hope we have a humanoid skeleton
+multi-vendor extension that is simpler and has less restrictions.
+
+If this extension will be accepted, the VRM humanoid extension
+(and other rich humanoid extensions) may extend this extension.
