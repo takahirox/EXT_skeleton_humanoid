@@ -128,7 +128,7 @@ retargeting.
 * Directs the +Y axis from the parent joint to the child joint
 * +X rotation bends the joint like a muscle contracting
 
-### Skeleton definition
+## Skeleton definition
 
 The `EXT_skeleton_humanoid` extension in root `glTF` allows to define humanoid
 skeletons. `glTF.EXT_skeleton_humanoid.humanoidSkeletons` takes an array of
