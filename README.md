@@ -135,7 +135,12 @@ skeletons. `glTF.EXT_skeleton_humanoid.humanoidSkeletons` takes an array of
 humanoid skeleton definitions.
 
 `glTF.EXT_skeleton_humanoid.humanoidSkeleton.humanoidBones` defines a map from
-the predefined humanoid bone names to `nodes`.
+the predefined humanoid bone names to `nodes`. The referred `nodes` **MUST** be
+[joint nodes](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#skins).
+
+Implementation Note: All the bone nodes of a humanoid skeleton **MAY** belong
+to a single `skin` or **MAY** be scattered among multiple `skins`.
+
 `glTF.EXT_skeleton_humanoid.humanoidSkeleton.rootNode` specifies a skeleton
 root `node`.
 
