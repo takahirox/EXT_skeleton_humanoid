@@ -14,9 +14,9 @@ Written against the glTF 2.0 spec
 
 ## Overview
 
-This extension defines a default humanoid skeleton in glTF, allows to retarget
-glTF animations to any humanoid model that follows the standard skeleton, and
-improves the reusability of humanoid animations.
+This extension predefines a default humanoid skeleton structure, allows to
+remap glTF animations to any humanoid model that follows the default
+skeleton structure, and improves the reusability of humanoid animations.
 
 Humanoid model is one of the popular 3D assets. You will find a lot of humanoid
 models in glTF assets download websites.
@@ -25,31 +25,32 @@ models in glTF assets download websites.
 Humanoid animations, eg: Walk, Run, and Jump, are generally achieved with
 skinning. Reusing humanoid animation that is made for a certain humanoid model
 to other humanoid models is not easy in glTF because of lack of animation
-retargeting mechanism.
+remapping mechanism.
 
-What makes the retargeting difficult is that the glTF 2.0 core does not
-specify default humanoid skeleton (a series of bones and their hierarchy)
-therefore different humanoid models may have different formed skeletons.
+The difficulty of remapping comes from that different humanoid models may have
+different structured skeletons because the glTF 2.0 core does not specify
+default humanoid skeleton structure.
 
 Another reason is that animation target in the glTF 2.0 core is tied to a
 certain node in the same glTF file and there is no way to target a node
 in other glTF files.
 
 Because of these two reasons there is no simple, clear, and common workflow for
-humanoid animation retargeting in glTF. Currently even common humanoid
-animations like Walk need to be made for each humanoid model. It is very costly.
-Humanoid animation retargeting is important for saving cost.
+applying humanoid animation made for a certain humanoid model to other humanoid
+models. Currently even common humanoid animations like Walk need to be made for
+every humanoid model. It is very costly. Humanoid animation remapping helps
+to reduce the cost by reusing animation data.
 
-This extension allows easy humanoid animation retargeting across humanoid
+This extension allows easy humanoid animation remapping across humanoid
 models that use the extension. The basic idea consists of
 
 * Predefine a default humanoid skeleton (a series of bones, their hierarchy,
-and default pose)
+and pose) structure and humanoid models follow it
 * Allow animation channel to specify a target node with a predefined bone name
 * Represent animation data as relative transform from the default pose
 
 The implementations will be able to easily achieve humanoid animation
-retargeting by
+remapping by
 
 * Loading an animation data
 * Loading a humanoid model
@@ -58,6 +59,17 @@ retargeting by
 
 Also, this extension allows to create common humanoid animation library because
 animation target is no longer tied to a certain node in the same glTF file.
+
+## Scope
+
+### In scope
+
+* Remap animation among the same or similar structured skeletons.
+
+### Out of scope
+
+* Retarget animation among different structured skeletons.
+* Add constraints to joints. It should be defined in another extension that extends this extension.
 
 ## Example
 
@@ -71,7 +83,7 @@ The models are originally from
 * https://hub.vroid.com/en/characters/287819523106027526/models/7392039141849953586
 * https://hub.vroid.com/en/characters/2843975675147313744/models/5644550979324015604
 
-and a bit edited to support the extension.
+and edited a bit to follow the extension.
 
 ## Predefined skeleton
 
@@ -121,7 +133,7 @@ TODO: Finalize the default pose restriction [#11](https://github.com/takahirox/E
 Currently based on [Godot Engine](https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/retargeting_3d_skeletons.html#rest-fixer)
 
 The extension adds some restrictions to the default pose to ease the animation
-retargeting.
+remapping.
 
 * T-Pose
 * Facing +Z
@@ -238,10 +250,10 @@ Schema: [animation.channel.target.EXT_skeleton_humanoid.schema.json](./schema/an
 |:------|:------|:------|:------|
 | `humanoidBoneName` | `string` | A predefined bone name to specify a target node | :white_check_mark: Yes |
 
-## Animation retargeting
+## Animation remapping
 
 An animation channel that defines the `EXT_skeleton_humanoid` extension is
-expected to be retargeted to a humanoid model that defines the
+expected to be remapped to a humanoid model that defines the
 `EXT_skeleton_humanoid` extension.
 
 The implementation can find a target node of a humanoid model by accessing
@@ -259,7 +271,7 @@ that represents relative transform from target node's default pose.
 
 The default poses are specified with
 [skin.inverseBindMatrices](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#reference-skin)
-so retargeted animation can be calculated as like the following pseudo code.
+so remapped animation can be calculated as like the following pseudo code.
 
 ```
 bindWorldMatrix = invertMatrix(inverseBindMatrix);
@@ -291,7 +303,7 @@ Multiple humanoid models and multiple skeletons can be included in a
 single glTF file.
 
 Another disadvantage of VRM is it does not specify keyframe animation
-or animation retargeting although they are important features for
+or animation remapping although they are important features for
 humanoid models. The `EXT_skeleton_humanoid` extension supports them.
 
 VRM is primarily designed as VR avatar model format and has unique
