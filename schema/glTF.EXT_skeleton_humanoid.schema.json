@@ -31,6 +31,15 @@
                 "head": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
+                "leftEye": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ]
+                },
+                "rightEye": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ]
+                },
+                "jaw": {
+                    "allOf": [ { "$ref": "glTFid.schema.json" } ]
+                },
                 "leftShoulder": {
                     "allOf": [ { "$ref": "glTFid.schema.json" } ]
                 },
