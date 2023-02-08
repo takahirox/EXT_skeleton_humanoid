@@ -102,6 +102,8 @@ Currently based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specific
    │     └─ upperChest
    │        ├─ neck
    │        │  └─ head
+   │        │     ├─ [left|right]Eye
+   │        │     └─ jaw
    │        └─ [left|right]Shoulder
    │           └─ [left|right]UpperArm
    │              └─ [left|right]LowerArm
