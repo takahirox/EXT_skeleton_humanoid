@@ -89,11 +89,77 @@ and edited a bit to follow the extension.
 
 ### Humanoid bone set and hierarchy
 
-T.B.D.
+Body
 
-TODO: Finalize the humanoid bone set and hierarchy [#10](https://github.com/takahirox/EXT_skeleton_humanoid/issues/10)
+|Body parts|Bone name|Reruired|
+|----|----|----|
+|Hips|hips|Yes :white_check_mark:|
+|Waist|spine|No|
+|Abdomen|chest|No|
+|Bladebone|upperChest|No|
+|Neck|neck|No|
+|Left shoulder|leftShoulder|No|
+|Left humerus|leftUpperArm|No|
+|Left forearm|leftLowerArm|No|
+|Left hand|leftHand|No|
+|Left thigh|leftUpperLeg|No|
+|Left lower thigh|leftLowerLeg|No|
+|Left foot|leftFoot|No|
+|Left toe|leftToes|No|
+|Right shoulder|rightShoulder|No|
+|Right humerus|rightUpperArm|No|
+|Right forearm|rightLowerArm|No|
+|Right hand|rightHand|No|
+|Right thigh|rightUpperLeg|No|
+|Right lower thigh|rightLowerLeg|No|
+|Right foot|rightFoot|No|
+|Right toe|rightToes|No|
 
-Currently based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.md).
+Head
+
+|Body parts|Bone name|Required|
+|----|----|----|
+|Left eye|leftEye|No|
+|Right eye|rightEye|No|
+|Head|head|No|
+|Jaw|jaw|No|
+
+Hand
+
+|Body parts|Bone name|Required|
+|----|----|----|
+|Left Thumb - Basal|leftThumbProximal|No|
+|Left Thumb - Middle|leftThumbIntermediate|No|
+|Left Thumb - Tip|leftThumbDistal|No|
+|Left Index - Basal|leftIndexProximal|No|
+|Left Index - Middle|leftIndexIntermediate|No|
+|Left Index - Tip|leftIndexDistal|No|
+|Left Middle - Basal|leftMiddleProximal|No|
+|Left Middle - Middle|leftMiddleIntermediate|No|
+|Left Middle - Tip|leftMiddleDistal|No|
+|Left Ring - Basal|leftRingProximal|No|
+|Left Ring - Middle|leftRingIntermediate|No|
+|Left Ring - Tip|leftRingDistal|No|
+|Left Little - Basal|leftLittleProximal|No|
+|Left Little - Middle|leftLittleIntermediate|No|
+|Left Little - Tip|leftLittleDistal|No|
+|Right Thumb - Basal|rightThumbProximal|No|
+|Right Thumb - Middle|rightThumbIntermediate|No|
+|Right Thumb - Tip|rightThumbDistal|No|
+|Right Index - Basal|rightIndexProximal|No|
+|Right Index - Middle|rightIndexIntermediate|No|
+|Right Index - Tip|rightIndexDistal|No|
+|Right Middle - Basal|rightMiddleProximal|No|
+|Right Middle - Middle|rightMiddleIntermediate|No|
+|Right Middle - Tip|rightMiddleDistal|No|
+|Right Ring - Basal|rightRingProximal|No|
+|Right Ring - Middle|rightRingIntermediate|No|
+|Right Ring - Tip|rightRingDistal|No|
+|Right Little - Basal|rightLittleProximal|No|
+|Right Little - Middle|rightLittleIntermediate|No|
+|Right Little - Tip|rightLittleDistal|No|
+
+Bone hierarchy
 
 ```
 └─ hips
@@ -125,6 +191,14 @@ Currently based on [VRM humanoid bone set](https://github.com/vrm-c/vrm-specific
 <img src="./images/hand.png" width="480" alt="hand">
 
 TODO: Add bone names into the images.
+
+*Non-normative comment*
+
+This skeleton structure is strongly based on [Unity Mechanim Humanoids](https://blog.unity.com/technology/mecanim-humanoids)
+and compatible with [VRM 1.0 humanoid bone set](https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.md).
+
+Because of the compatibility with major humanoid structures, this extension may
+allow to reuse their existing ecosystems or workflow.
 
 ### Default pose
 
