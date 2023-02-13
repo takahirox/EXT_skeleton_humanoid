@@ -186,11 +186,11 @@ Bone hierarchy
             └─ [left|right]Toes
 ```
 
+Example skeleton screenshot (Credit: [Blender](https://www.blender.org/) with [VRM addon](https://vrm-addon-for-blender.info/))
+
 <img src="./images/body.png" width="480" alt="body">
 
 <img src="./images/hand.png" width="480" alt="hand">
-
-TODO: Add bone names into the images.
 
 *Non-normative comment*
 
