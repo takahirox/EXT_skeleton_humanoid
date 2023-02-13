@@ -128,8 +128,8 @@ Hand
 
 |Body parts|Bone name|Required|
 |----|----|----|
-|Left Thumb - Basal|leftThumbProximal|No|
-|Left Thumb - Middle|leftThumbIntermediate|No|
+|Left Thumb - Basal|leftThumbMetacarpal|No|
+|Left Thumb - Middle|leftThumbProximal|No|
 |Left Thumb - Tip|leftThumbDistal|No|
 |Left Index - Basal|leftIndexProximal|No|
 |Left Index - Middle|leftIndexIntermediate|No|
@@ -143,8 +143,8 @@ Hand
 |Left Little - Basal|leftLittleProximal|No|
 |Left Little - Middle|leftLittleIntermediate|No|
 |Left Little - Tip|leftLittleDistal|No|
-|Right Thumb - Basal|rightThumbProximal|No|
-|Right Thumb - Middle|rightThumbIntermediate|No|
+|Right Thumb - Basal|rightThumbMetacarpal|No|
+|Right Thumb - Middle|rightThumbProximal|No|
 |Right Thumb - Tip|rightThumbDistal|No|
 |Right Index - Basal|rightIndexProximal|No|
 |Right Index - Middle|rightIndexIntermediate|No|
