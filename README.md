@@ -91,83 +91,83 @@ and edited a bit to follow the extension.
 
 Body
 
-|Body parts|Bone name|Required|
-|----|----|----|
-|Hips|hips|Yes :white_check_mark:|
-|Waist|spine|No|
-|Abdomen|chest|No|
-|Bladebone|upperChest|No|
-|Neck|neck|No|
+|Body parts|Bone name|
+|----|----|
+|Hips|hips|
+|Waist|spine|
+|Abdomen|chest|
+|Bladebone|upperChest|
+|Neck|neck|
 
 Arms
 
-|Body parts|Bone name|Reruired|
-|----|----|----|
-|Left shoulder|leftShoulder|No|
-|Left humerus|leftUpperArm|No|
-|Left forearm|leftLowerArm|No|
-|Left hand|leftHand|No|
-|Right shoulder|rightShoulder|No|
-|Right humerus|rightUpperArm|No|
-|Right forearm|rightLowerArm|No|
-|Right hand|rightHand|No|
+|Body parts|Bone name|
+|----|----|
+|Left shoulder|leftShoulder|
+|Left humerus|leftUpperArm|
+|Left forearm|leftLowerArm|
+|Left hand|leftHand|
+|Right shoulder|rightShoulder|
+|Right humerus|rightUpperArm|
+|Right forearm|rightLowerArm|
+|Right hand|rightHand|
 
 Legs
 
-|Body parts|Bone name|Reruired|
-|----|----|----|
-|Left thigh|leftUpperLeg|No|
-|Left lower thigh|leftLowerLeg|No|
-|Left foot|leftFoot|No|
-|Left toe|leftToes|No|
-|Right thigh|rightUpperLeg|No|
-|Right lower thigh|rightLowerLeg|No|
-|Right foot|rightFoot|No|
-|Right toe|rightToes|No|
+|Body parts|Bone name|
+|----|----|
+|Left thigh|leftUpperLeg|
+|Left lower thigh|leftLowerLeg|
+|Left foot|leftFoot|
+|Left toe|leftToes|
+|Right thigh|rightUpperLeg|
+|Right lower thigh|rightLowerLeg|
+|Right foot|rightFoot|
+|Right toe|rightToes|
 
 Head
 
-|Body parts|Bone name|Required|
-|----|----|----|
-|Left eye|leftEye|No|
-|Right eye|rightEye|No|
-|Head|head|No|
-|Jaw|jaw|No|
+|Body parts|Bone name|
+|----|----|
+|Left eye|leftEye|
+|Right eye|rightEye|
+|Head|head|
+|Jaw|jaw|
 
 Hands
 
-|Body parts|Bone name|Required|
-|----|----|----|
-|Left Thumb - Basal|leftThumbMetacarpal|No|
-|Left Thumb - Middle|leftThumbProximal|No|
-|Left Thumb - Tip|leftThumbDistal|No|
-|Left Index - Basal|leftIndexProximal|No|
-|Left Index - Middle|leftIndexIntermediate|No|
-|Left Index - Tip|leftIndexDistal|No|
-|Left Middle - Basal|leftMiddleProximal|No|
-|Left Middle - Middle|leftMiddleIntermediate|No|
-|Left Middle - Tip|leftMiddleDistal|No|
-|Left Ring - Basal|leftRingProximal|No|
-|Left Ring - Middle|leftRingIntermediate|No|
-|Left Ring - Tip|leftRingDistal|No|
-|Left Little - Basal|leftLittleProximal|No|
-|Left Little - Middle|leftLittleIntermediate|No|
-|Left Little - Tip|leftLittleDistal|No|
-|Right Thumb - Basal|rightThumbMetacarpal|No|
-|Right Thumb - Middle|rightThumbProximal|No|
-|Right Thumb - Tip|rightThumbDistal|No|
-|Right Index - Basal|rightIndexProximal|No|
-|Right Index - Middle|rightIndexIntermediate|No|
-|Right Index - Tip|rightIndexDistal|No|
-|Right Middle - Basal|rightMiddleProximal|No|
-|Right Middle - Middle|rightMiddleIntermediate|No|
-|Right Middle - Tip|rightMiddleDistal|No|
-|Right Ring - Basal|rightRingProximal|No|
-|Right Ring - Middle|rightRingIntermediate|No|
-|Right Ring - Tip|rightRingDistal|No|
-|Right Little - Basal|rightLittleProximal|No|
-|Right Little - Middle|rightLittleIntermediate|No|
-|Right Little - Tip|rightLittleDistal|No|
+|Body parts|Bone name|
+|----|----|
+|Left Thumb - Basal|leftThumbMetacarpal|
+|Left Thumb - Middle|leftThumbProximal|
+|Left Thumb - Tip|leftThumbDistal|
+|Left Index - Basal|leftIndexProximal|
+|Left Index - Middle|leftIndexIntermediate|
+|Left Index - Tip|leftIndexDistal|
+|Left Middle - Basal|leftMiddleProximal|
+|Left Middle - Middle|leftMiddleIntermediate|
+|Left Middle - Tip|leftMiddleDistal|
+|Left Ring - Basal|leftRingProximal|
+|Left Ring - Middle|leftRingIntermediate|
+|Left Ring - Tip|leftRingDistal|
+|Left Little - Basal|leftLittleProximal|
+|Left Little - Middle|leftLittleIntermediate|
+|Left Little - Tip|leftLittleDistal|
+|Right Thumb - Basal|rightThumbMetacarpal|
+|Right Thumb - Middle|rightThumbProximal|
+|Right Thumb - Tip|rightThumbDistal|
+|Right Index - Basal|rightIndexProximal|
+|Right Index - Middle|rightIndexIntermediate|
+|Right Index - Tip|rightIndexDistal|
+|Right Middle - Basal|rightMiddleProximal|
+|Right Middle - Middle|rightMiddleIntermediate|
+|Right Middle - Tip|rightMiddleDistal|
+|Right Ring - Basal|rightRingProximal|
+|Right Ring - Middle|rightRingIntermediate|
+|Right Ring - Tip|rightRingDistal|
+|Right Little - Basal|rightLittleProximal|
+|Right Little - Middle|rightLittleIntermediate|
+|Right Little - Tip|rightLittleDistal|
 
 Bone hierarchy
 
