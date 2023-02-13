@@ -91,25 +91,35 @@ and edited a bit to follow the extension.
 
 Body
 
-|Body parts|Bone name|Reruired|
+|Body parts|Bone name|Required|
 |----|----|----|
 |Hips|hips|Yes :white_check_mark:|
 |Waist|spine|No|
 |Abdomen|chest|No|
 |Bladebone|upperChest|No|
 |Neck|neck|No|
+
+Arms
+
+|Body parts|Bone name|Reruired|
+|----|----|----|
 |Left shoulder|leftShoulder|No|
 |Left humerus|leftUpperArm|No|
 |Left forearm|leftLowerArm|No|
 |Left hand|leftHand|No|
-|Left thigh|leftUpperLeg|No|
-|Left lower thigh|leftLowerLeg|No|
-|Left foot|leftFoot|No|
-|Left toe|leftToes|No|
 |Right shoulder|rightShoulder|No|
 |Right humerus|rightUpperArm|No|
 |Right forearm|rightLowerArm|No|
 |Right hand|rightHand|No|
+
+Legs
+
+|Body parts|Bone name|Reruired|
+|----|----|----|
+|Left thigh|leftUpperLeg|No|
+|Left lower thigh|leftLowerLeg|No|
+|Left foot|leftFoot|No|
+|Left toe|leftToes|No|
 |Right thigh|rightUpperLeg|No|
 |Right lower thigh|rightLowerLeg|No|
 |Right foot|rightFoot|No|
@@ -124,7 +134,7 @@ Head
 |Head|head|No|
 |Jaw|jaw|No|
 
-Hand
+Hands
 
 |Body parts|Bone name|Required|
 |----|----|----|
