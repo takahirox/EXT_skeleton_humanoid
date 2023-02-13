@@ -196,6 +196,16 @@ Bone hierarchy
             └─ [left|right]Toes
 ```
 
+- Each humanoid bone is optional. If a bone node does not exist in a skeleton,
+its parent will be the parent of its children. For example if chest bone does not
+exist spine bone node will be parent of upperChest bone node,
+like *(parent) spine - upperChest (child)*.
+- Intermediate non-humanoid bone nodes are allowed to be between parent and
+child bone nodes. For example *(parent) hips - boneFoo - boneBar - spine (child)*
+is valid.
+- Between parent and child bone nodes other humanoid bone nodes of the same skeleton
+**MUST NOT** be. For example *(parent) hips - chest - spine (child)* is invalid.
+
 Example skeleton screenshot (Credit: [Blender](https://www.blender.org/) with [VRM addon](https://vrm-addon-for-blender.info/))
 
 <img src="./images/body.png" width="480" alt="body">
