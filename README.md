@@ -204,7 +204,7 @@ Example skeleton screenshot (Credit: [Blender](https://www.blender.org/) with [V
 
 *Non-normative comment*
 
-This skeleton structure is strongly based on [Unity Mechanim Humanoids](https://blog.unity.com/technology/mecanim-humanoids)
+This skeleton structure is strongly based on [Unity Mecanim Humanoids](https://blog.unity.com/technology/mecanim-humanoids)
 and compatible with [VRM 1.0 humanoid bone set](https://github.com/vrm-c/vrm-specification/blob/master/specification/VRMC_vrm-1.0/humanoid.md).
 
 Because of the compatibility with major humanoid structures, this extension may
