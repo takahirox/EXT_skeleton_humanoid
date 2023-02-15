@@ -69,7 +69,7 @@ animation target is no longer tied to a certain node in the same glTF file.
 ### In scope
 
 * Remap animation among the same or similar structured skeletons.
-  * Same or similar structures skeletons allow easy, efficient, and accurate
+  * Same or similar structured skeletons allow easy, efficient, and accurate
     animation remapping.
 
 ### Out of scope
