@@ -231,12 +231,6 @@ allow to reuse their existing ecosystems or workflow.
 
 ### Reference pose
 
-T.B.D.
-
-TODO: Finalize the default reference pose restriction [#11](https://github.com/takahirox/EXT_skeleton_humanoid/issues/11)
-
-Currently based on [Godot Engine](https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/retargeting_3d_skeletons.html#rest-fixer)
-
 The extension adds some restrictions to the default pose to ease the animation
 remapping.
 
@@ -244,6 +238,12 @@ remapping.
 * Facing +Z
 * Directs the +Y axis from the parent joint to the child joint
 * +X rotation bends the joint like a muscle contracting
+
+*Non-normative comment*
+
+This restrictions are strongly based on [Godot Engine](https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/retargeting_3d_skeletons.html#rest-fixer)
+
+TODO: Finalize the default reference pose restriction [#11](https://github.com/takahirox/EXT_skeleton_humanoid/issues/11)
 
 ## Skeleton definition
 
