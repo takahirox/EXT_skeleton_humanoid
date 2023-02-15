@@ -215,12 +215,6 @@ is valid.
 - Between parent and child bone nodes other humanoid bone nodes of the same skeleton
 **MUST NOT** be. For example *(parent) hips - chest - spine (child)* is invalid.
 
-Example skeleton screenshot (Credit: [Blender](https://www.blender.org/) with [VRM addon](https://vrm-addon-for-blender.info/))
-
-<img src="./images/body.png" width="480" alt="body">
-
-<img src="./images/hand.png" width="480" alt="hand">
-
 *Non-normative comment*
 
 This skeleton structure is strongly based on [Unity Mecanim Humanoids](https://blog.unity.com/technology/mecanim-humanoids)
@@ -244,6 +238,16 @@ remapping.
 This restrictions are strongly based on [Godot Engine](https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/retargeting_3d_skeletons.html#rest-fixer)
 
 TODO: Finalize the default reference pose restriction [#11](https://github.com/takahirox/EXT_skeleton_humanoid/issues/11)
+
+### Example skeleton
+
+These screenshots shows an example skeleton following the default skeleton structure and reference pose
+
+(Credit: [Blender](https://www.blender.org/) with [VRM addon](https://vrm-addon-for-blender.info/))
+
+<img src="./images/body.png" width="480" alt="body">
+
+<img src="./images/hand.png" width="480" alt="hand">
 
 ## Skeleton definition
 
