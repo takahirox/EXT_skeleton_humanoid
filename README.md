@@ -229,11 +229,11 @@ and compatible with [VRM 1.0 humanoid bone set](https://github.com/vrm-c/vrm-spe
 Because of the compatibility with major humanoid structures, this extension may
 allow to reuse their existing ecosystems or workflow.
 
-### Default pose
+### Reference pose
 
 T.B.D.
 
-TODO: Finalize the default pose restriction [#11](https://github.com/takahirox/EXT_skeleton_humanoid/issues/11)
+TODO: Finalize the default reference pose restriction [#11](https://github.com/takahirox/EXT_skeleton_humanoid/issues/11)
 
 Currently based on [Godot Engine](https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/retargeting_3d_skeletons.html#rest-fixer)
 
@@ -372,9 +372,9 @@ targetNodeIndex = glTF.extensions.EXT_skeleton_humanoid.humanoidSkeletons[skelet
 
 `animation.sampler` referred by `animation.channel` whose `target` defines
 the `EXT_skeleton_humanoid` extension is expected to hold keyframe animation data
-that represents relative transform from target node's default pose.
+that represents relative transform from target node's reference pose.
 
-The default poses are specified with
+The reference poses are specified with
 [skin.inverseBindMatrices](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#reference-skin)
 so remapped animation can be calculated as like the following pseudo code.
 
