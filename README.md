@@ -38,16 +38,20 @@ in other glTF files.
 Because of these two reasons there is no simple, clear, and common workflow for
 applying humanoid animation made for a certain humanoid model to other humanoid
 models. Currently even common humanoid animations like Walk need to be made for
-every humanoid model. It is very costly. Humanoid animation remapping helps
-to reduce the cost by reusing animation data.
+each humanoid model. It is very costly. The capability of remapping Humanoid
+animation helps to reduce the cost by reusing animation data.
 
-This extension allows easy humanoid animation remapping across humanoid
-models that use the extension. The basic idea consists of
+This extension allows easy and efficient humanoid animation remapping across
+humanoid models that use the extension. The basic idea consists of
 
-* Predefine a default humanoid skeleton (a series of bones, their hierarchy,
-and pose) structure and humanoid models follow it
-* Allow animation channel to specify a target node with a predefined bone name
-* Represent animation data as relative transform from the default pose
+* The extension predefines default humanoid skeleton structure (a series of
+bones, their hierarchy, and reference pose)
+* The skeletons of humanoid models that use this extension follow the
+structure of the default humanoid skeleton
+* The extension allows animation channel to specify a target node with
+a predefined bone name
+* The extension lets animation data represent as relative transform from
+the reference pose
 
 The implementations will be able to easily achieve humanoid animation
 remapping by
@@ -55,7 +59,7 @@ remapping by
 * Loading an animation data
 * Loading a humanoid model
 * Finding an animation target node by a predefined bone name
-* Applying retargeted animation calculated from the default pose
+* Applying animation calculated from the reference pose
 
 Also, this extension allows to create common humanoid animation library because
 animation target is no longer tied to a certain node in the same glTF file.
@@ -65,11 +69,16 @@ animation target is no longer tied to a certain node in the same glTF file.
 ### In scope
 
 * Remap animation among the same or similar structured skeletons.
+  * Same or similar structures skeletons allow easy, efficient, and accurate
+    animation remapping.
 
 ### Out of scope
 
 * Retarget animation among different structured skeletons.
-* Add constraints to joints. It should be defined in another extension that extends this extension.
+  * Because it may be costly, complex, or less accurate.
+* Add constraints to joints.
+  * To avoid Complexity. It should be defined in another extension that extends
+    this extension.
 
 ## Example
 
