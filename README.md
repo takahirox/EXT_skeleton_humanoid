@@ -74,10 +74,10 @@ animation target is no longer tied to a certain node in the same glTF file.
 
 ### Out of scope
 
-* Retarget animation among different structured skeletons.
+* Retarget animation among differently structured skeletons.
   * Because it may be costly, complex, or less accurate.
 * Add constraints to joints.
-  * To avoid Complexity. It should be defined in another extension that extends
+  * To avoid complexity. It should be defined in another extension that extends
     this extension.
 
 ## Example
