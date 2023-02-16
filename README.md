@@ -225,19 +225,24 @@ allow to reuse their existing ecosystems or workflow.
 
 ### Reference pose
 
-The extension adds some restrictions to the default pose to ease the animation
+The extension adds some restrictions to the reference pose to ease the animation
 remapping.
 
-* T-Pose
-* Facing +Z
-* Directs the +Y axis from the parent joint to the child joint
-* +X rotation bends the joint like a muscle contracting
+* The character uses [T-Pose](https://en.wikipedia.org/wiki/T-pose) as reference pose.
+* The character must face along the positive direction of the Z-axis.
+* The arms must be spread along the X-axis. The left arm should therefore be pointing along the positive direction of the X-axis.
+* The top of the character's head must be up, in the positive direction of the Y-axis.
+* The character's hands are flat, palms facing the ground, with the thumbs parallel to the X axis.
+* The character's feet need to be perpendicular to the legs (with the toes pointing along the Z-axis as shown). The feet must not be rotated around the Y-axis (meaning the toes of the left foot should not point inward toward the right leg or outward away from the right leg).
+* The bone node directs the +Y axis from the parent joint to the child joint.
+* The bone node's +X rotation bends the joint like a muscle contracting.
 
 *Non-normative comment*
 
-This restrictions are strongly based on [Godot Engine](https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/retargeting_3d_skeletons.html#rest-fixer)
-
-TODO: Finalize the default reference pose restriction [#11](https://github.com/takahirox/EXT_skeleton_humanoid/issues/11)
+This restrictions are strongly based on
+[Vircadia Avatar Standards Guide Reference pose](https://docs.vircadia.com/create/avatars/avatar-standards.html#reference-pose)
+and
+[Godot engine Rest fixer](https://docs.godotengine.org/en/latest/tutorials/assets_pipeline/retargeting_3d_skeletons.html#rest-fixer).
 
 ### Example skeleton
 
