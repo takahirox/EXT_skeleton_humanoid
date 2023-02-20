@@ -232,7 +232,9 @@ remapping.
 * The character must face along the positive direction of the Z-axis.
 * The arms must be spread along the X-axis. The left arm should therefore be pointing along the positive direction of the X-axis.
 * The top of the character's head must be up, in the positive direction of the Y-axis.
-* The character's hands are flat, palms facing the ground, with the thumbs parallel to the X axis.
+* The character's hands are flat and palms facing the ground.
+* The fingers straight parallel to the ground along x axis.
+* The thumbs straight parallel to the ground half way (45 degrees) between x and z axis.
 * The character's feet need to be perpendicular to the legs (with the toes pointing along the Z-axis). The feet must not be rotated around the Y-axis (meaning the toes of the left foot should not point inward toward the right leg or outward away from the right leg).
 * The bone node directs the +Y axis from the parent joint to the child joint.
 * The bone node's +X rotation bends the joint like a muscle contracting.
