@@ -71,6 +71,9 @@ animation target is no longer tied to a certain node in the same glTF file.
 * Remap animation among the same or similar structured skeletons.
   * Same or similar structured skeletons allow easy, efficient, and accurate
     animation remapping.
+* Humanoid bone rotation animation.
+  * To keep the remapping algorithm efficient and easy, this extension targets
+    only rotation animation. 
 
 ### Out of scope
 
@@ -79,6 +82,9 @@ animation target is no longer tied to a certain node in the same glTF file.
 * Add constraints to joints.
   * To avoid complexity. It should be defined in another extension that extends
     this extension.
+* Humanoid bone translation and scale animation.
+  * To avoid complexity and inefficiency. They should be defined in another
+    extension that extends this extension.
 
 ## Example
 
@@ -357,6 +363,12 @@ specify the target node with a humanoid bone name predefined in the
 `animation.sampler` reffered by a `animation.channel` that defines this
 extension **MUST NOT** be reffered by another `animation.channel` that
 does not define this extension.
+
+`animation.target.path` **MUST** be `rotation`, `translation`, or `scale`.
+
+Implementation Note: In general only `rotation` path should be used. There is
+no guarantee that `translation` and `scale` animation can be accurately applied
+among humanoid skeletons.
 
 Schema: [animation.channel.target.EXT_skeleton_humanoid.schema.json](./schema/animation.channel.target.EXT_skeleton_humanoid.schema.json)
 
